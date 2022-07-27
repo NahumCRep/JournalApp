@@ -13,10 +13,12 @@ const formValidations = {
   password: [(value) => value.length > 1, 'ingrese la contraseña']
 }
 
+const formData = { email: '', password: '' }
+
 export const LoginPage = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const { status, errorMessage } = useSelector(state => state.auth)
-  const { email, password, formState, onInputChange, onResetForm, emailValid, passwordValid, isFormValid } = useForm({ email: '', password: '' }, formValidations)
+  const { email, password, formState, onInputChange, onResetForm, emailValid, passwordValid, isFormValid } = useForm(formData, formValidations)
   const dispatch = useDispatch()
 
   const isAuthenticated = useMemo(() => status === 'checking', [status])
