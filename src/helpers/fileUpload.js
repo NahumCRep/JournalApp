@@ -1,6 +1,7 @@
 
 export const fileUpload = async (file) => {
-    if(!file) throw new Error('no hay ningun archivo a subir');
+    // if(!file) throw new Error('no hay ningun archivo a subir');
+    if(!file) return null;
 
     const cloudURL = 'https://api.cloudinary.com/v1_1/nahumcasco-v/upload';
     const formData = new FormData();
